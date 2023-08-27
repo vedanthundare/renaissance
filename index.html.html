@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Renaissance 2023</title>
+  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Iceland&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    video {
+      height: 100vh;
+      width: 100vw;
+      object-fit: unset;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -999;
+    }
+    .launch-time {
+      display: flex;
+      margin-left: 80px;
+    }
+    .launch-time div {
+      flex-basis: 105px;
+      color: rgb(0 255 250);
+      text-align: center;
+    }
+    .launch-time div p {
+      font-size: 30px;
+      margin-bottom: 0px;
+      text-align: center;
+    }
+    .launch-time div span {
+      font-family: "Iceland", Cambria, Cochin, Georgia, Times, "Times New Roman",
+        serif;
+      font-size: 15px;
+    }
+    
+   
+    .wrapper div span {
+      margin-left: 0px;
+      font-family: "Iceland", Cambria, Cochin, Georgia, Times, "Times New Roman",
+        serif;
+      color: rgb(0 255 250);
+    }
+    
+  </style>
+  <body>
+    <div class="background">
+      <div class="wrapper">
+        <div class="launch-time">
+          <div>
+            <p id="Days">00</p>
+            <span>Days</span>
+          </div>
+          <div>
+            <p id="Hours">00</p>
+            <span>Hours</span>
+          </div>
+          <div>
+            <p id="Minutes">00</p>
+            <span>Minutes</span>
+          </div>
+          <div>
+            <p id="Seconds">00</p>
+            <span>Seconds</span>
+          </div>
+        </div>
+        
+      </div>
+      <video autoplay loop muted>
+        <source class="fix" src="./video.mp4.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <script>
+      var countDownDate = new Date("Sept 06, 2023 00:00:00").getTime();
+      var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var Days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var Hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var Minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var Seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("Days").innerHTML = Days;
+        document.getElementById("Hours").innerHTML = Hours;
+        document.getElementById("Minutes").innerHTML = Minutes;
+        document.getElementById("Seconds").innerHTML = Seconds;
+      }, 1000);
+    </script>
+  </body>
+</html>
